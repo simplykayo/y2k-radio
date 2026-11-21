@@ -15,3 +15,89 @@
 .playlist-pick{width:100%;display:flex;align-items:center;gap:12px;padding:13px 10px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);text-align:left}.playlist-pick:hover{background:var(--panel2)}.playlist-pick svg{color:var(--accent)}.playlist-pick span{flex:1;font-size:12px}.playlist-pick small{font-size:10px;color:var(--muted)}
 
 .suggestions .suggestion-track{display:flex;align-items:center;gap:10px}.suggestions .suggestion-track img{width:38px;height:38px;object-fit:cover;border-radius:5px;flex:0 0 auto}.suggestions .suggestion-track span{display:grid;gap:4px;min-width:0;flex:1}.suggestions .suggestion-track b{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.suggestions .suggestion-track small,.suggestion-status{font-size:10px;color:var(--muted)}.suggestions .suggestion-track>svg{margin-left:auto;color:var(--accent)}
+
+
+/* Y2K RETRO-FUTURE ART DIRECTION */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{font-family:'Space Grotesk',sans-serif}
+body{background:#090b1c}
+.app-shell{--bg:#090b1c;--panel:#15182d;--panel2:#202440;--line:#a9c7ff35;--text:#f8f4ff;--muted:#a7a6c6;--accent:#ff79d1;--green:#a8f7ff;background:radial-gradient(ellipse at 12% 0%,#ff62c52c,transparent 34%),radial-gradient(ellipse at 88% 12%,#50d9ff22,transparent 36%),linear-gradient(145deg,#080a19,#11142b 55%,#0b0d20);position:relative;isolation:isolate}
+.app-shell:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;background-image:linear-gradient(#a7c7ff12 1px,transparent 1px),linear-gradient(90deg,#a7c7ff12 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+.app-shell:after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.12;background:repeating-linear-gradient(to bottom,transparent 0 3px,#d8e9ff18 4px)}
+.theme-day{--bg:#f9e8f5;--panel:#fff8ff;--panel2:#f5ddf1;--line:#b65c9b45;--text:#381d42;--muted:#986b91;--accent:#e33ba7;--green:#38a9c7;background:radial-gradient(ellipse at 10% 0%,#ff9edb88,transparent 40%),radial-gradient(ellipse at 90% 20%,#8ceaff88,transparent 40%),#faeefa}
+.topbar{height:82px;border-bottom:1px solid #a9c7ff38;background:linear-gradient(90deg,#11142beF,#251632eF,#10182beF);box-shadow:0 8px 35px #05061588}
+.brand{font-family:Audiowide,sans-serif;font-size:20px;letter-spacing:-1.2px;text-shadow:0 0 18px #ff7bdc99}
+.brand-disc{border-radius:50%;background:linear-gradient(135deg,#fff 0%,#ffb6e8 24%,#b7f6ff 48%,#a78bfa 72%,#fff 100%);color:#26213b;box-shadow:0 0 0 3px #ffffff25,0 0 24px #ff7bdc77,inset 0 0 10px #fff}
+.brand-accent{background:linear-gradient(90deg,#ff8bdc,#9befff,#d5b5ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.search-box{border:1px solid #b4eaff70;border-radius:12px;background:linear-gradient(135deg,#ffffff15,#ff9cdd12),#11152b;box-shadow:inset 0 1px #ffffff20,0 0 18px #6cdcff13}
+.search-box:focus-within{border-color:#ff8cda;box-shadow:0 0 0 3px #ff8cda25,0 0 26px #ff8cda2b}
+.search-box input{font-family:'Space Grotesk',sans-serif}
+.search-box kbd{border-radius:4px;background:linear-gradient(#ffffff,#aeb8d5);color:#26253c;border:0;box-shadow:0 2px 0 #606b8a;font-weight:700}
+.icon-btn,.profile-dot{border:1px solid #c1dfff77;background:linear-gradient(145deg,#ffffff28,#a4caff12);box-shadow:inset 0 1px #fff5,0 0 16px #80dfff1c}
+.profile-dot{background:linear-gradient(145deg,#ffb0e5,#a9efff);color:#28213f;font-family:Audiowide}
+.app-layout{gap:25px}
+.sidebar{border-right:1px dashed #9acbff55}
+.sidebar nav button,.playlist-nav button{border-radius:8px;font-weight:600;transition:.18s}
+.sidebar nav button:hover,.sidebar nav button.active,.playlist-nav button:hover{background:linear-gradient(90deg,#ff79d126,#7eeaff18);box-shadow:inset 3px 0 #ff82d6;color:#fff}
+.sidebar nav button.active svg{color:#ff8bdc;filter:drop-shadow(0 0 5px #ff8bdc)}
+.side-library-head{color:#ff9cdb}
+.playlist-mini{border-radius:6px;background:linear-gradient(135deg,#ff9cdb,#9cecff);color:#24203d}
+.sidebar-foot{border-top:1px dashed #9acbff55;color:#a9b9dc}
+.eq i{background:#8cf3ff;box-shadow:0 0 8px #8cf3ff}
+.welcome,.wrapped-hero{border:1px solid #c2a8ff77;border-radius:18px;background:radial-gradient(ellipse at 85% 20%,#ff9cdb42,transparent 38%),linear-gradient(120deg,#211c43,#39244f 52%,#183b54);box-shadow:0 16px 45px #05061788,inset 0 1px #ffffff35;position:relative}
+.welcome:after,.wrapped-hero:after{content:"✦  DIGITAL DREAMS  ✦";position:absolute;right:20px;top:16px;font:9px Audiowide;color:#c3f5ff;letter-spacing:2px;text-shadow:0 0 12px #9cecff}
+.welcome h1,.wrapped-hero h1{font-family:Audiowide,'Space Grotesk',sans-serif;font-size:clamp(30px,3.6vw,48px);letter-spacing:-2px;text-shadow:0 4px 0 #15122e,0 0 24px #ff79d866}
+.welcome h1 i,.wrapped-hero h1 i{font-family:Georgia,serif;color:#ffa7e1;text-shadow:0 0 18px #ff7bdc}
+.eyebrow{color:#9beeff;font:9px 'DM Mono';letter-spacing:2px;text-shadow:0 0 10px #79e8ff66}
+.solid-button{border:1px solid #fff9;border-radius:7px;background:linear-gradient(110deg,#ff8bd5,#ffc1e9 40%,#9cefff 100%);color:#241b3b;box-shadow:0 4px 0 #76558d,0 0 22px #ff8bdc44,inset 0 1px #fff;font-weight:800;text-transform:uppercase;letter-spacing:.6px;transition:.18s}
+.solid-button:hover{transform:translateY(-2px);box-shadow:0 6px 0 #76558d,0 0 30px #ff8bdc77}
+.outline-button{border:1px solid #9cecff99;border-radius:7px;background:#9cecff12;color:var(--text)}
+.text-link{color:#a9eaff}
+.section-title h2,.page-heading h1,.library-banner h1{font-family:Audiowide,'Space Grotesk',sans-serif;letter-spacing:-.8px}
+.mood-card,.discover-card{border:1px solid #ffffff55;border-radius:9px;box-shadow:0 12px 30px #05061766,inset 0 1px #ffffff44;transition:transform .2s,box-shadow .2s}
+.mood-card:before,.discover-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,#ffffff32,transparent 30%,transparent 70%,#ff9bd52c);mix-blend-mode:screen}
+.mood-card:hover,.discover-card:hover{transform:translateY(-5px) rotate(-.35deg);box-shadow:0 18px 35px #05061799,0 0 22px #ff82d633}
+.mood-card>i,.discover-card>i{background:linear-gradient(135deg,#ff8bd5,#9cecff);color:#201936;box-shadow:0 0 20px #ff8bdc66}
+.track-table{border-top:1px solid #a9c7ff44}
+.track-head{color:#a7eaff;border-bottom:1px dashed #a9c7ff55}
+.track-row{border-bottom:1px solid #a9c7ff16;border-radius:5px}
+.track-row:hover,.track-row.selected{background:linear-gradient(90deg,#ff7bdc1c,#7beaff12);box-shadow:inset 3px 0 #ff85d7}
+.track-main img,.top-list img{border-radius:6px;border:1px solid #c3eaff55;box-shadow:0 0 12px #8beaff22}
+.track-actions button:hover,.track-actions button.liked{color:#ff8bdc}
+.empty{border:1px dashed #9cecff77;border-radius:10px;background:linear-gradient(135deg,#ff8bdc09,#8ceaff0b)}
+.empty svg{color:#ff8bdc}
+.playlist-cards button,.wrapped-grid>div{border:1px solid #a9c7ff55;border-radius:9px;background:linear-gradient(145deg,#ffffff12,#ff8bdc08),var(--panel);box-shadow:0 8px 24px #05061744,inset 0 1px #ffffff18;transition:.2s}
+.playlist-cards button:hover{transform:translateY(-4px);border-color:#ff8bdc}
+.playlist-cards button>span{border-radius:6px;background:linear-gradient(135deg,#ff9cdb,#a5eaff 55%,#b8a1ff);color:#27203d}
+.library-banner>div{border:1px solid #ffffff88;border-radius:9px;background:linear-gradient(135deg,#ff9cdb,#a5eaff 55%,#b8a1ff);color:#29203f;box-shadow:0 10px 30px #ff8bdc30}
+.wrapped-disc{background:repeating-radial-gradient(circle,#f9d7f0 0 2px,#a8c4e9 3px 4px,#d9b8ed 5px 7px);box-shadow:0 0 0 8px #ffffff12,0 0 45px #ff8bdc55;color:#29203f}
+.wrapped-grid>div{gap:10px}
+.wrapped-grid svg{color:#ff8bdc}
+.top-list{border-top:1px solid #a9c7ff44}
+.top-list>div{border-bottom:1px dashed #a9c7ff33}
+.top-list>div>b{color:#ff8bdc;font-family:Audiowide}
+.player-bar{height:92px;border-top:1px solid #a9eaff77;background:linear-gradient(90deg,#11142bf2,#24152ff2,#101b30f2);box-shadow:0 -10px 35px #03051388,inset 0 1px #ffffff22}
+.player-track img,.player-placeholder{border:1px solid #ffffff77;border-radius:7px;box-shadow:0 0 16px #ff8bdc33}
+.player-controls button,.player-right button{transition:.15s}
+.player-controls button:hover,.player-right button:hover,.player-controls button.on{color:#ff8bdc;filter:drop-shadow(0 0 7px #ff8bdc)}
+.play-circle{background:linear-gradient(135deg,#ff8bd5,#a1edff)!important;color:#241b3b!important;border:1px solid #fff!important;box-shadow:0 0 0 4px #ff8bdc22,0 0 22px #ff8bdc77}
+.player-progress i{background:linear-gradient(90deg,#ff8bd5,#a1edff);box-shadow:0 0 9px #8ceaff}
+.now-screen{background:radial-gradient(ellipse at 15% 5%,#ff79d53d,transparent 35%),radial-gradient(ellipse at 85% 45%,#50d9ff25,transparent 40%),#090b1c}
+.now-art-wrap img{border:1px solid #ffffff66;border-radius:8px;box-shadow:0 25px 80px #000b,0 0 35px #ff8bdc33}
+.now-art-wrap>span{background:linear-gradient(100deg,#ff9cdb,#a5eaff);color:#211b38;font-family:Audiowide}
+.now-details h1{font-family:Audiowide,'Space Grotesk',sans-serif;text-shadow:0 0 25px #ff79d544}
+.youtube-frame{border:1px solid #a9eaff77;border-radius:9px;background:#a9eaff0b;box-shadow:0 0 30px #60dfff16}
+.overlay{background:#080919c9}
+.side-panel,.small-modal{border:1px solid #a9eaff66;background:linear-gradient(145deg,#1c1a39,#11172b);box-shadow:0 25px 80px #000b,0 0 30px #ff8bdc22}
+.panel-head h2{font-family:Audiowide}
+.timer-grid button{border-radius:6px;background:linear-gradient(135deg,#ffffff12,#ff8bdc0b);border-color:#9cecff55}
+.timer-grid button:hover{border-color:#ff8bdc;color:#ff8bdc}
+.input-label input{border:1px solid #9cecff66;border-radius:6px;background:#090d20}
+.toast{border:1px solid #a9eaff88;border-radius:7px;background:linear-gradient(100deg,#211a3b,#132b40);box-shadow:0 0 25px #ff8bdc22}
+.suggestions{border:1px solid #a9eaff88;border-radius:10px;background:linear-gradient(145deg,#1d1b39,#111a2c);box-shadow:0 18px 50px #000b,0 0 22px #ff8bdc22}
+.suggestions>small{color:#9cecff}
+.suggestions .suggestion-track:hover{background:#ff8bdc18}
+.suggestions .suggestion-track>svg{color:#ff8bdc}
+.suggestion-direct{color:#9cecff!important}
+@media(max-width:700px){.topbar{height:68px}.welcome:after,.wrapped-hero:after{font-size:7px;right:10px;top:10px}.welcome h1{font-size:30px}.player-bar{height:112px}.app-shell{padding-bottom:130px}}
+@media(prefers-reduced-motion:reduce){.vinyl{animation:none}}
