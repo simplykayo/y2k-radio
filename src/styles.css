@@ -167,3 +167,28 @@ body{background:#090b1c}
 .now-screen.minimized .deck-controls svg{width:15px;height:15px}
 .now-screen.minimized .deck-note{display:none}
 @media(max-width:700px){.now-screen.minimized{right:8px;bottom:122px;width:224px}.now-screen.minimized .now-player-card{width:224px}.now-screen.minimized .youtube-frame{width:200px;height:200px}.now-screen.minimized .yt-player-host{width:100%;height:100%}.now-screen.minimized .yt-player-host iframe{height:200px!important}}
+
+
+/* Immersive Now Playing visuals, Song Radio and synced lyrics */
+.now-screen{isolation:isolate;overflow:auto}
+.now-backdrop{position:fixed;inset:-35px;z-index:-1;background-size:cover;background-position:center;filter:blur(38px) saturate(1.5);opacity:.36;transform:scale(1.08);animation:backdropDrift 24s ease-in-out infinite alternate;pointer-events:none}
+@keyframes backdropDrift{to{transform:scale(1.18) translate3d(-1.5%,1%,0);filter:blur(48px) saturate(1.8)}}
+.visualizer{height:46px;display:flex;align-items:center;justify-content:center;gap:4px;margin:14px 0 4px;padding:8px 12px;border:1px solid #a9eaff33;border-radius:7px;background:linear-gradient(90deg,#ff8bd50b,#9cecff12);overflow:hidden}
+.visualizer i{display:block;width:4px;height:9px;border-radius:5px;background:linear-gradient(to top,#ff83d7,#a1edff);opacity:.5;transform:scaleY(.25);transform-origin:center;box-shadow:0 0 8px #8ceaff55}
+.visualizer.is-playing i{opacity:1;animation:visualizerBars .8s ease-in-out infinite alternate;animation-delay:calc(var(--bar,0)*-65ms)}
+.visualizer i:nth-child(3n){--bar:3}.visualizer i:nth-child(3n + 1){--bar:7}.visualizer i:nth-child(3n + 2){--bar:11}
+@keyframes visualizerBars{0%{transform:scaleY(.2)}35%{transform:scaleY(1.8)}70%{transform:scaleY(.55)}100%{transform:scaleY(1.25)}}
+.now-actions .radio-action{border-color:#ff8bdc88;color:#ffb1e5}
+.now-actions button:disabled{opacity:.5;cursor:wait}
+.lyrics-card{max-width:1050px;margin:0 auto 18px;padding:18px 22px;border:1px solid #a9eaff66;border-radius:13px;background:linear-gradient(145deg,#ffffff13,#ff8bdc09),#10152a;box-shadow:0 18px 50px #0006}
+.lyrics-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #a9eaff33}
+.lyrics-heading span{font:12px Audiowide;color:#ff9cdb;letter-spacing:1.5px}
+.lyrics-heading small{font:8px 'DM Mono';color:#a5eaff;letter-spacing:1px}
+.lyrics-lines{max-height:230px;overflow:auto;padding:12px 4px;scrollbar-width:thin}
+.lyrics-lines p{margin:10px 0;color:#8589ad;font:600 clamp(15px,2vw,21px) 'Space Grotesk';transition:.2s}
+.lyrics-lines p.active{color:#fff;text-shadow:0 0 18px #ff8bdc;transform:scale(1.015);transform-origin:left}
+.lyrics-state{margin:16px 0 3px;color:#b8b5d4;font-size:12px;line-height:1.7}
+.lyrics-state span{display:block;color:#898eaf;font-size:10px}
+.now-screen.minimized .now-backdrop,.now-screen.minimized .lyrics-card,.now-screen.minimized .visualizer{display:none}
+@media(max-width:700px){.lyrics-card{padding:14px}.visualizer{height:38px}}
+@media(prefers-reduced-motion:reduce){.now-backdrop,.visualizer.is-playing i{animation:none!important}}
