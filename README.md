@@ -1,22 +1,26 @@
 # Y2K Radio
 
-A glossy little music player inspired by the colour, texture and optimism of the early 2000s.
+A Y2K-inspired music discovery and playlist app, built around a glossy dark interface, big artwork and a proper listening view.
 
-Y2K Radio keeps a personal audio library in the browser and can search YouTube through the official YouTube Data API. YouTube videos play in YouTube's own embedded player.
+Search results and playback are provided through YouTube's official services. Y2K Radio does not host music files or extract audio from YouTube.
 
-## Features
+## What it does
 
-- Import audio files from your device
-- Keep a local library in IndexedDB
-- Search YouTube music videos
-- Play YouTube results using the official embedded player
-- Like tracks and keep a favourites list
-- Queue local tracks
-- Playback controls, seek bar and volume
-- Responsive layout for desktop and mobile
-- Preferences saved in the current browser
+- Discover music through mood-based radio collections
+- Search songs, artists and genres with quick search suggestions
+- Play music in YouTube's official embedded player
+- Open a full-screen Now Playing view
+- Create playlists and add discovered tracks
+- Import and export playlists as JSON files
+- Like tracks and revisit recently played songs
+- Manage an upcoming queue
+- Toggle repeat and shuffle controls
+- Set a sleep timer
+- View a Wrapped-style recap with play counts and top tracks
+- Switch between dark and light colourways
+- Responsive desktop and mobile layouts
 
-## Run it locally
+## Run locally
 
 You will need Node.js 18 or newer.
 
@@ -25,7 +29,7 @@ npm install
 npm run dev
 ```
 
-To create a production build:
+Create a production build:
 
 ```bash
 npm run build
@@ -40,18 +44,20 @@ Search requests run through a Cloudflare Pages Function. The API key stays in Cl
 
 1. Open the [Google Cloud Console](https://console.cloud.google.com/apis/library/youtube.googleapis.com).
 2. Create or select a project and enable **YouTube Data API v3**.
-3. Create an API key. Restrict it to YouTube Data API v3.
+3. Create an API key and restrict it to YouTube Data API v3.
 4. In Cloudflare, open the Pages project and go to **Settings → Variables and Secrets**.
 5. Add a secret named `YOUTUBE_API_KEY` and paste the key as its value.
-6. Save the setting and trigger a new deployment.
+6. Save and trigger a new deployment.
 
-Do not add the key to the source code, GitHub repository, or the website's settings screen. The API has quota limits; searches made by all visitors count against the same Google Cloud project quota.
+Do not put the key in source code, the GitHub repository, or the website. Searches from all visitors use the same project quota.
 
-YouTube playback is handled by the official embedded player. YouTube determines advertising, playback availability, regional restrictions and other playback behaviour.
+## Playback notes
+
+Playback uses YouTube's official embedded player. YouTube determines advertising, availability, regional restrictions and other playback behaviour. The app can record when a track is selected, but it cannot reliably read full listening duration or detailed playback analytics from the embedded player. The Wrapped page therefore reports play counts and top tracks rather than claiming exact listening minutes.
+
+The repeat option uses the embed's loop setting. Queue navigation is controlled from the app's player controls; YouTube may still apply its own playback restrictions.
 
 ## Cloudflare Pages
-
-This project is a Vite app.
 
 | Setting | Value |
 | --- | --- |
@@ -60,14 +66,10 @@ This project is a Vite app.
 | Build output directory | `dist` |
 | Root directory | `/` |
 
-Connect this repository in Cloudflare Pages and deploy. Every push to the connected branch can trigger a new build.
+Connect this repository to Cloudflare Pages. Pushes to the connected branch can trigger a new deployment.
 
-## Privacy and storage
+## Browser storage and privacy
 
-Imported audio files are stored in the browser's IndexedDB database on the device where they were added. They are not uploaded to a server. Clearing browser site data can remove the local library, so keep original copies of your music files.
+Playlists, liked tracks, recently played tracks, and recap counts are saved in local storage in the current browser. Playlist export creates a JSON backup you can keep or import on another browser. This app does not upload personal music files because local-file importing is not part of this version.
 
-Favourites are stored in local storage in the same browser. The YouTube API key is stored as a Cloudflare secret.
-
-## Notes
-
-Y2K Radio does not host or redistribute music. Use audio files you have the right to play, and follow the terms of each integrated service.
+The YouTube API key is stored as a Cloudflare secret. Y2K Radio does not host or redistribute music.
