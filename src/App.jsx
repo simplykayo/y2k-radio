@@ -120,6 +120,15 @@ function App() {
     if (audioRef.current) audioRef.current.volume = muted ? 0 : volume;
   }, [volume, muted]);
 
+  useEffect(() => {
+    if (!youtubeVideo) return;
+    const frame = document.querySelector(".youtube-dock iframe");
+    frame?.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func: youtubePlaying ? "playVideo" : "pauseVideo", args: [] }),
+      "https://www.youtube-nocookie.com"
+    );
+  }, [youtubePlaying, youtubeVideo]);
+
   const visibleTracks = useMemo(() => {
     if (activeView === "favourites") return tracks.filter((track) => favourites.includes(track.id));
     if (activeView === "recent") return tracks;
@@ -422,7 +431,7 @@ function App() {
           <div className="youtube-dock-copy"><Youtube size={16} /><span>Playing through YouTube's official player</span></div>
           <iframe
             title="YouTube music player"
-            src={"https://www.youtube-nocookie.com/embed/" + youtubeVideo + "?autoplay=1&controls=1&rel=0"}
+            src={"https://www.youtube-nocookie.com/embed/" + youtubeVideo + "?autoplay=1&controls=1&rel=0&enablejsapi=1&origin=" + encodeURIComponent(window.location.origin)}
             allow="autoplay; encrypted-media; picture-in-picture"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
