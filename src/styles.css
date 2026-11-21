@@ -340,3 +340,81 @@ body:has(.app-shell[data-theme="grape"]) { background:#eee8f7; }
 .theme-cream { --swatch:linear-gradient(135deg,#f1e5cb,#b88c53); --swatch-light:#fffaf0; --swatch-mid:#dfc18f; }
 .theme-grape { --swatch:linear-gradient(135deg,#e6d9f5,#8d6bc8); --swatch-light:#fff; --swatch-mid:#c1a9ed; }
 @media (max-width:650px) { .theme-grid { grid-template-columns:1fr; } }
+
+
+/* Accessible text contrast across every colourway */
+.app-shell[data-theme] { color:var(--theme-ink); }
+.app-shell[data-theme] .sidebar-label,
+.app-shell[data-theme] .hero-copy p,
+.app-shell[data-theme] .hero-footnote,
+.app-shell[data-theme] .eyebrow,
+.app-shell[data-theme] .muted-eyebrow,
+.app-shell[data-theme] .browse-caption,
+.app-shell[data-theme] .browse-footnote,
+.app-shell[data-theme] .mix-copy small,
+.app-shell[data-theme] .stat-message,
+.app-shell[data-theme] .quick-stats small,
+.app-shell[data-theme] .track-number,
+.app-shell[data-theme] .track-info small,
+.app-shell[data-theme] .source-tag,
+.app-shell[data-theme] .bottom-note,
+.app-shell[data-theme] .note-right,
+.app-shell[data-theme] .now-copy small,
+.app-shell[data-theme] .progress-row,
+.app-shell[data-theme] .youtube-dock-copy,
+.app-shell[data-theme] .settings-help,
+.app-shell[data-theme] .settings-warning p,
+.app-shell[data-theme] .settings-title small,
+.app-shell[data-theme] .field-label,
+.app-shell[data-theme] .modal-footer > span,
+.app-shell[data-theme] .theme-option-copy small,
+.app-shell[data-theme] .collection-card span,
+.app-shell[data-theme] .sidebar-note,
+.app-shell[data-theme] .search-hint { color:var(--theme-muted) !important; }
+.app-shell[data-theme] .hero-copy h1,
+.app-shell[data-theme] .section-heading h2,
+.app-shell[data-theme] .mix-copy strong,
+.app-shell[data-theme] .track-info strong,
+.app-shell[data-theme] .brand,
+.app-shell[data-theme] .now-copy strong,
+.app-shell[data-theme] .empty-state h3,
+.app-shell[data-theme] .settings-title strong,
+.app-shell[data-theme] .modal-heading h2,
+.app-shell[data-theme] .theme-option-copy strong,
+.app-shell[data-theme] .collection-card strong,
+.app-shell[data-theme] .nav-item,
+.app-shell[data-theme] .sidebar-bottom { color:var(--theme-ink) !important; }
+.app-shell[data-theme] .hero-copy h1 em,
+.app-shell[data-theme] .brand-light,
+.app-shell[data-theme] .eyebrow-star,
+.app-shell[data-theme] .stat-message b,
+.app-shell[data-theme] .text-button,
+.app-shell[data-theme] .round-button,
+.app-shell[data-theme] .control-icon,
+.app-shell[data-theme] .row-play,
+.app-shell[data-theme] .row-heart,
+.app-shell[data-theme] .row-delete,
+.app-shell[data-theme] .player-heart,
+.app-shell[data-theme] .settings-title,
+.app-shell[data-theme] .settings-link,
+.app-shell[data-theme] .collection-card button,
+.app-shell[data-theme] .sidebar-note svg { color:var(--theme-accent-strong) !important; }
+.app-shell[data-theme] .search-box,
+.app-shell[data-theme] .search-box input,
+.app-shell[data-theme] .settings-input { color:var(--theme-ink) !important; }
+.app-shell[data-theme] .search-box input::placeholder { color:var(--theme-muted) !important; opacity:1; }
+.app-shell[data-theme] .secondary-button { color:var(--theme-ink) !important; border-color:var(--theme-line); }
+.app-shell[data-theme] .nav-item.active { color:var(--theme-accent-strong) !important; }
+.app-shell[data-theme] .source-tag { border-color:var(--theme-line); }
+.app-shell[data-theme] .empty-state p { color:var(--theme-muted) !important; }
+.app-shell[data-theme] .primary-button,
+.app-shell[data-theme] .main-play,
+.app-shell[data-theme] .mix-arrow,
+.app-shell[data-theme] .mix-art { color:#fff !important; }
+.app-shell[data-theme] .track-row:hover,
+.app-shell[data-theme] .track-row.is-current { color:var(--theme-ink); }
+.app-shell[data-theme] .settings-modal { color:var(--theme-ink); }
+.app-shell[data-theme] .theme-option { color:var(--theme-ink); }
+.app-shell[data-theme] .theme-check { color:var(--theme-accent-strong) !important; }
+.app-shell[data-theme] .toast { color:var(--theme-ink); background:var(--theme-surface); border-color:var(--theme-line); }
+.app-shell[data-theme] .toast button { color:var(--theme-accent-strong); }
