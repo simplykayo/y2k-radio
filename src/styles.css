@@ -281,8 +281,15 @@ button:focus-visible, input:focus-visible { outline: 3px solid rgba(217, 94, 152
 .app-shell[data-theme="cyber"] { --theme-ink:#e6f4ef; --theme-muted:#8eb5a9; --theme-accent:#69f0c2; --theme-accent-strong:#23c99a; --theme-page:#101c1b; --theme-surface:rgba(20,39,36,.95); --theme-card:rgba(27,51,47,.9); --theme-line:rgba(105,240,194,.2); --theme-hero:linear-gradient(115deg,#183c36,#1b343e 55%,#282747); }
 .app-shell[data-theme="cream"] { --theme-ink:#655344; --theme-muted:#aa9884; --theme-accent:#d4ae7b; --theme-accent-strong:#b88c53; --theme-page:#f5f0e6; --theme-surface:rgba(255,253,247,.9); --theme-card:rgba(255,255,255,.78); --theme-line:rgba(168,139,100,.2); --theme-hero:linear-gradient(112deg,#f1e5cb,#f5eadb 55%,#e9e1d0); }
 .app-shell[data-theme="grape"] { --theme-ink:#514064; --theme-muted:#9c8bad; --theme-accent:#b69be8; --theme-accent-strong:#8d6bc8; --theme-page:#eee8f7; --theme-surface:rgba(250,247,255,.9); --theme-card:rgba(255,255,255,.78); --theme-line:rgba(139,111,185,.2); --theme-hero:linear-gradient(112deg,#e6d9f5,#e9e0f7 55%,#dcdff4); }
-body:has(.app-shell[data-theme="midnight"]), body:has(.app-shell[data-theme="cyber"]) { background:var(--theme-page); }
-body:has(.app-shell[data-theme="lavender"]), body:has(.app-shell[data-theme="ocean"]), body:has(.app-shell[data-theme="mint"]), body:has(.app-shell[data-theme="sunset"]), body:has(.app-shell[data-theme="cherry"]), body:has(.app-shell[data-theme="cream"]), body:has(.app-shell[data-theme="grape"]) { background:var(--theme-page); }
+body:has(.app-shell[data-theme="midnight"]) { background:#171323; }
+body:has(.app-shell[data-theme="cyber"]) { background:#101c1b; }
+body:has(.app-shell[data-theme="lavender"]) { background:#f0eafa; }
+body:has(.app-shell[data-theme="ocean"]) { background:#e8f4f8; }
+body:has(.app-shell[data-theme="mint"]) { background:#eaf5ee; }
+body:has(.app-shell[data-theme="sunset"]) { background:#fff0e8; }
+body:has(.app-shell[data-theme="cherry"]) { background:#faeaf0; }
+body:has(.app-shell[data-theme="cream"]) { background:#f5f0e6; }
+body:has(.app-shell[data-theme="grape"]) { background:#eee8f7; }
 .app-shell[data-theme]:not([data-theme="bubblegum"]) .topbar,
 .app-shell[data-theme]:not([data-theme="bubblegum"]) .sidebar,
 .app-shell[data-theme]:not([data-theme="bubblegum"]) .player-bar { background:var(--theme-surface); border-color:var(--theme-line); color:var(--theme-ink); }
