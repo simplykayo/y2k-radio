@@ -10,7 +10,8 @@ const MOODS=[
 {id:"desi",name:"Desi scene",line:"Hindi hits, old and new",q:"Hindi Bollywood popular songs",img:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=900&q=85"},
 {id:"rewind",name:"Y2K rewind",line:"Back when the CD player was everything",q:"2000s 2010s nostalgic pop hits",img:"https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=900&q=85"}];
 const SUGGEST=["Arijit Singh","The Weeknd","Taylor Swift","Diljit Dosanjh","A.R. Rahman","2000s Bollywood hits","Hindi love songs","Indie pop","Lo-fi beats","90s throwbacks"];
-const formatClock=s=>{const n=Math.max(0,Math.floor(s||0));return Math.floor(n/60).toString().padStart(2,"0")+":"+Math.floor(n%60).toString().padStart(2,"0")};\nconst read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}, write=(k,v)=>localStorage.setItem(k,JSON.stringify(v)), uid=()=>crypto.randomUUID(), safe=s=>String(s||"").replace(/<[^>]*>/g,"").trim();
+const formatClock=s=>{const n=Math.max(0,Math.floor(s||0));return Math.floor(n/60).toString().padStart(2,"0")+":"+Math.floor(n%60).toString().padStart(2,"0")};
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}, write=(k,v)=>localStorage.setItem(k,JSON.stringify(v)), uid=()=>crypto.randomUUID(), safe=s=>String(s||"").replace(/<[^>]*>/g,"").trim();
 export default function App(){
 const [view,V]=useState("home"),[query,Q]=useState(""),[results,R]=useState([]),[busy,B]=useState(false),[suggest,SS]=useState(false),[suggestions,SetSuggestions]=useState([]),[suggestBusy,SetSuggestBusy]=useState(false);
 const [current,C]=useState(null),[playing,P]=useState(false),[queue,U]=useState([]),[likes,L]=useState(()=>read("y2k:likes",[])),[recent,H]=useState(()=>read("y2k:recent",[])),[stats,T]=useState(()=>read("y2k:stats",{plays:0,byTrack:{}})),[lists,PL]=useState(()=>read("y2k:lists",[]));
