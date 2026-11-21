@@ -235,3 +235,36 @@ button:focus-visible, input:focus-visible { outline: 3px solid rgba(217, 94, 152
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Curated music collections */
+.browse-section { margin: 4px 0 30px; padding: 0 9px; }
+.browse-heading { margin-bottom: 14px; }
+.browse-caption { color: #c19caf; font: 8px "DM Mono", monospace; letter-spacing: .8px; }
+.collection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+.mix-card { min-width: 0; min-height: 88px; display: flex; align-items: center; gap: 11px; padding: 10px; text-align: left; border: 1px solid #fff; border-radius: 14px; background: #fff9; box-shadow: 0 5px 16px #bc8da510; transition: transform .18s, box-shadow .18s; }
+.mix-card:hover { transform: translateY(-2px); box-shadow: 0 9px 20px #bc8da522; }
+.mix-art { position: relative; width: 58px; height: 58px; flex: 0 0 auto; display: grid; place-items: center; overflow: hidden; border-radius: 11px; color: #fff; box-shadow: inset 0 1px #ffffff99; }
+.mix-art > span { font-size: 13px; font-weight: 800; letter-spacing: -.5px; }
+.mix-art i { position: absolute; right: 5px; bottom: -8px; font: italic 35px Georgia, serif; opacity: .3; }
+.mix-rose { background: linear-gradient(145deg, #f1a8c8, #c75e92); }
+.mix-lilac { background: linear-gradient(145deg, #d7b7ed, #9674bd); }
+.mix-silver { background: linear-gradient(145deg, #d4d5e1, #8b91a8); }
+.mix-peach { background: linear-gradient(145deg, #ffc6b7, #df8ca4); }
+.mix-blue { background: linear-gradient(145deg, #a8d4e7, #718bb9); }
+.mix-gold { background: linear-gradient(145deg, #f3d79c, #d99c74); }
+.mix-copy { display: grid; gap: 5px; min-width: 0; flex: 1; }
+.mix-copy strong { color: #76516a; font-size: 10px; }
+.mix-copy small { color: #b092a3; font-size: 8px; line-height: 1.4; }
+.mix-arrow { width: 27px; height: 27px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(145deg, #eca0c1, #d477a5); opacity: .85; }
+.browse-footnote { margin: 11px 2px 0; color: #b294a5; font-size: 9px; line-height: 1.6; }
+@media (max-width: 900px) { .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) {
+  .browse-section { padding: 0 2px; margin-bottom: 25px; }
+  .browse-caption { display: none; }
+  .collection-grid { gap: 8px; }
+  .mix-card { min-height: 75px; gap: 8px; padding: 7px; }
+  .mix-art { width: 46px; height: 46px; }
+  .mix-copy strong { font-size: 9px; }
+  .mix-copy small { font-size: 7px; }
+  .mix-arrow { width: 23px; height: 23px; }
+}
