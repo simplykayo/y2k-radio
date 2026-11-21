@@ -8,7 +8,6 @@ import {
 
 const DB_NAME = "y2k-radio-library";
 const STORE_NAME = "tracks";
-const SETTINGS_KEY = "y2k-radio-settings";
 const FAVOURITES_KEY = "y2k-radio-favourites";
 
 function openLibrary() {
@@ -54,11 +53,6 @@ async function removeTrack(id) {
   });
 }
 
-function readSettings() {
-  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}"); }
-  catch { return {}; }
-}
-
 function formatTime(seconds) {
   if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
   const minutes = Math.floor(seconds / 60);
@@ -76,7 +70,6 @@ function App() {
   const [muted, setMuted] = useState(false);
   const [query, setQuery] = useState("");
   const [youtubeResults, setYoutubeResults] = useState([]);
-  const [youtubeKey, setYoutubeKey] = useState(readSettings().youtubeKey || "");
   const [showSettings, setShowSettings] = useState(false);
   const [activeView, setActiveView] = useState("home");
   const [favourites, setFavourites] = useState(() => {
@@ -101,10 +94,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem(FAVOURITES_KEY, JSON.stringify(favourites));
   }, [favourites]);
-
-  useEffect(() => {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify({ youtubeKey }));
-  }, [youtubeKey]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -204,23 +193,11 @@ function App() {
     event?.preventDefault();
     if (!searchTerm.trim()) return;
     setQuery(searchTerm);
-    if (!youtubeKey.trim()) {
-      setShowSettings(true);
-      setNotice("Add a YouTube Data API key in settings to search YouTube.");
-      return;
-    }
     setSearching(true);
     setYoutubeResults([]);
     try {
-      const params = new URLSearchParams({
-        part: "snippet",
-        type: "video",
-        videoCategoryId: "10",
-        maxResults: "12",
-        q: searchTerm.trim(),
-        key: youtubeKey.trim()
-      });
-      const response = await fetch("https://www.googleapis.com/youtube/v3/search?" + params);
+      const params = new URLSearchParams({ q: searchTerm.trim() });
+      const response = await fetch("/api/youtube-search?" + params);
       const data = await response.json();
       if (!response.ok) throw new Error(data.error?.message || "YouTube search failed.");
       setYoutubeResults((data.items || []).map((item) => ({
@@ -373,7 +350,7 @@ function App() {
                   </button>
                 ))}
               </div>
-              <p className="browse-footnote">Choose a collection to load songs from YouTube. Add your YouTube API key in Settings once to unlock the catalogue.</p>
+              <p className="browse-footnote">Choose a collection to discover music. Search is provided by Y2K Radio.</p>
             </section>
           )}
 
@@ -477,10 +454,8 @@ function App() {
             <div className="modal-heading"><div><span className="eyebrow muted-eyebrow">MAKE IT YOURS</span><h2>Little settings</h2></div><button className="icon-button" onClick={() => setShowSettings(false)} aria-label="Close settings"><X size={19} /></button></div>
             <div className="settings-block">
               <div className="settings-title"><Youtube size={18} /><div><strong>YouTube search</strong><small>Find music using the official YouTube Data API.</small></div></div>
-              <label className="field-label" htmlFor="youtube-key">YouTube Data API key</label>
-              <input id="youtube-key" className="settings-input" type="password" value={youtubeKey} onChange={(event) => setYoutubeKey(event.target.value)} placeholder="Paste your API key here" autoComplete="off" />
-              <p className="settings-help">Your key stays in this browser. Create one in Google Cloud Console and enable YouTube Data API v3. Restrict the key to your website before publishing.</p>
-              <a className="settings-link" href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank" rel="noreferrer">Open YouTube Data API <ExternalLink size={13} /></a>
+              <p className="settings-help">YouTube search is connected by the site owner. You do not need to add an API key on this device.</p>
+              <p className="settings-help">Playback uses YouTube’s official embedded player, so YouTube controls ads and availability.</p>
             </div>
             <div className="settings-block settings-warning"><Sparkles size={17} /><p>YouTube playback uses its official embedded player. YouTube controls ads, playback availability and regional restrictions.</p></div>
             <div className="modal-footer"><span>Y2K RADIO · VOL. 001</span><button className="primary-button" onClick={() => setShowSettings(false)}>All done <span>♡</span></button></div>
