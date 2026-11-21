@@ -200,9 +200,10 @@ function App() {
     }
   };
 
-  const searchYouTube = async (event) => {
+  const searchYouTube = async (event, searchTerm = query) => {
     event?.preventDefault();
-    if (!query.trim()) return;
+    if (!searchTerm.trim()) return;
+    setQuery(searchTerm);
     if (!youtubeKey.trim()) {
       setShowSettings(true);
       setNotice("Add a YouTube Data API key in settings to search YouTube.");
@@ -216,7 +217,7 @@ function App() {
         type: "video",
         videoCategoryId: "10",
         maxResults: "12",
-        q: query.trim(),
+        q: searchTerm.trim(),
         key: youtubeKey.trim()
       });
       const response = await fetch("https://www.googleapis.com/youtube/v3/search?" + params);
@@ -349,6 +350,32 @@ function App() {
             <div><span className="stat-icon"><ListMusic size={16} /></span><span><strong>{queue.length}</strong><small>UP NEXT</small></span></div>
             <div className="stat-message">made for the <b>love</b> of music <span>♡</span></div>
           </section>
+
+          {activeView === "home" && (
+            <section className="browse-section">
+              <div className="section-heading browse-heading">
+                <div><div className="eyebrow muted-eyebrow">PICK A MOOD</div><h2>Explore the music library</h2></div>
+                <span className="browse-caption">CURATED STARTING POINTS ♡</span>
+              </div>
+              <div className="collection-grid">
+                {[
+                  { title: "Hindi hits", detail: "Bollywood favourites", query: "Hindi Bollywood hit songs official music" , tone: "rose", mark: "हिंदी" },
+                  { title: "English pop", detail: "Big pop energy", query: "popular English pop songs official music", tone: "lilac", mark: "POP" },
+                  { title: "2000s throwbacks", detail: "Back to the good old days", query: "2000s hit songs official music", tone: "silver", mark: "Y2K" },
+                  { title: "Love songs", detail: "For the soft hours", query: "romantic Hindi and English songs official music", tone: "peach", mark: "♡" },
+                  { title: "Indie & chill", detail: "Easy listening, all day", query: "indie chill songs official music", tone: "blue", mark: "INDIE" },
+                  { title: "Feel-good mix", detail: "Instant mood lift", query: "feel good upbeat songs official music", tone: "gold", mark: "✳" }
+                ].map((mix) => (
+                  <button className="mix-card" key={mix.title} onClick={() => searchYouTube(null, mix.query)}>
+                    <span className={"mix-art mix-" + mix.tone}><span>{mix.mark}</span><i>♫</i></span>
+                    <span className="mix-copy"><strong>{mix.title}</strong><small>{mix.detail}</small></span>
+                    <span className="mix-arrow"><Play size={15} fill="currentColor" /></span>
+                  </button>
+                ))}
+              </div>
+              <p className="browse-footnote">Choose a collection to load songs from YouTube. Add your YouTube API key in Settings once to unlock the catalogue.</p>
+            </section>
+          )}
 
           <section className="library-section">
             <div className="section-heading">
