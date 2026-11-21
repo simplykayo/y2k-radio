@@ -101,3 +101,47 @@ body{background:#090b1c}
 .suggestion-direct{color:#9cecff!important}
 @media(max-width:700px){.topbar{height:68px}.welcome:after,.wrapped-hero:after{font-size:7px;right:10px;top:10px}.welcome h1{font-size:30px}.player-bar{height:112px}.app-shell{padding-bottom:130px}}
 @media(prefers-reduced-motion:reduce){.vinyl{animation:none}}
+
+
+/* Expanded Y2K now-playing experience */
+.now-screen{background:radial-gradient(ellipse at 12% 12%,#ff70cf3b,transparent 34%),radial-gradient(ellipse at 88% 25%,#59ddff2c,transparent 38%),linear-gradient(145deg,#080a19,#15102b 58%,#081b2a);padding:22px clamp(16px,6vw,90px) 55px}
+.now-top{max-width:1180px;margin:auto;padding-bottom:16px;border-bottom:1px solid #a9dfff44;color:#c7c4e4}
+.now-top>span{font:10px Audiowide;letter-spacing:2px;color:#a6efff;text-shadow:0 0 15px #6deaff}
+.now-top button{font:9px 'DM Mono';letter-spacing:1px}
+.now-content{max-width:1050px;margin:42px auto 36px;grid-template-columns:minmax(230px,390px) minmax(0,1fr);gap:clamp(30px,7vw,90px)}
+.now-art-wrap{padding:12px;border:1px solid #b5eaff88;border-radius:13px;background:linear-gradient(135deg,#ffffff25,#ff8edb13 45%,#7deaff16);box-shadow:0 22px 65px #0009,0 0 40px #ff75d62b,inset 0 1px #fff8}
+.now-art-wrap img{border-radius:7px;box-shadow:0 12px 35px #0009}
+.now-art-wrap>span{right:-16px;bottom:22px;padding:11px 16px;border:1px solid #fff;background:linear-gradient(100deg,#ff9cdb,#f5c7f2 45%,#a5efff);box-shadow:0 6px 18px #0006;font:9px Audiowide;letter-spacing:1px}
+.art-orbit{position:absolute;top:-20px;right:-17px;color:#a9f4ff;font-size:42px;font-style:normal;text-shadow:0 0 22px #7beaff;animation:orbitPulse 3s ease-in-out infinite}
+@keyframes orbitPulse{50%{transform:rotate(18deg) scale(1.18);filter:drop-shadow(0 0 10px #ff82d7)}}
+.now-details{padding:14px 0}
+.now-details .eyebrow{font:10px 'DM Mono';letter-spacing:2px;color:#a5efff}
+.now-details h1{font:clamp(25px,4vw,48px) Audiowide,'Space Grotesk',sans-serif;letter-spacing:-1.8px;line-height:1.12;margin:18px 0 12px;overflow-wrap:anywhere;text-shadow:0 0 30px #ff73d344}
+.now-details p{font-size:19px;color:#ffb2e5;margin:0}
+.now-tags{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.now-tags span{padding:7px 10px;border:1px solid #a9eaff66;border-radius:4px;background:#a9eaff0d;color:#b9edff;font:8px 'DM Mono';letter-spacing:1px}
+.now-actions{gap:18px;margin:25px 0}
+.now-actions>button:not(.play-circle){width:42px;height:42px;border:1px solid #a9eaff55;border-radius:50%;background:#ffffff0d;color:#d8d5ed;display:grid;place-items:center}
+.now-actions>button.liked{color:#ff8bdc;border-color:#ff8bdc}
+.play-circle.large{width:58px;height:58px;background:linear-gradient(135deg,#ff8bd5,#a1edff)!important;color:#241b3b!important;box-shadow:0 0 0 5px #ff8bdc20,0 0 28px #ff8bdc66}
+.now-caption{font:9px 'DM Mono';letter-spacing:1.5px;color:#8d91b6}
+.now-player-card{max-width:1050px;margin:0 auto;padding:18px;border:1px solid #a9eaff66;border-radius:13px;background:linear-gradient(145deg,#ffffff12,#ff8bdc08),#10152a;box-shadow:0 25px 70px #0008,inset 0 1px #ffffff25}
+.now-player-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 2px 13px}
+.now-player-heading span{font:12px Audiowide;color:#ff9cdb;letter-spacing:1.5px}
+.now-player-heading small{font:8px 'DM Mono';letter-spacing:1px;color:#a5eaff}
+.youtube-frame{max-width:none;margin:0 auto;border:1px solid #a9eaff55;border-radius:8px;padding:5px;background:#050916}
+.yt-player-host{width:100%;aspect-ratio:16/9;min-height:200px}
+.yt-player-host iframe{display:block;width:100%;height:100%;min-height:200px;border:0;border-radius:4px}
+.custom-deck{padding:15px 8px 3px}
+.deck-top{display:flex;justify-content:space-between;gap:10px;color:#a9efff;font:9px 'DM Mono';letter-spacing:1px}
+.deck-seek{appearance:none;width:100%;height:5px;margin:17px 0 12px;border-radius:10px;background:linear-gradient(90deg,#ff83d7,#a2f1ff);accent-color:#ff83d7;cursor:pointer}
+.deck-seek::-webkit-slider-thumb{appearance:none;width:14px;height:14px;border-radius:50%;border:2px solid #fff;background:#ff83d7;box-shadow:0 0 12px #ff83d7}
+.deck-seek::-moz-range-thumb{width:11px;height:11px;border-radius:50%;border:2px solid #fff;background:#ff83d7;box-shadow:0 0 12px #ff83d7}
+.deck-controls{display:flex;align-items:center;gap:12px}
+.deck-controls button{width:37px;height:37px;border:1px solid #a9eaff44;border-radius:50%;display:grid;place-items:center;background:#ffffff0a;color:#dcd9f0}
+.deck-controls button:hover{color:#ff9cdb;border-color:#ff9cdb}
+.deck-controls button.deck-play{width:48px;height:48px;background:linear-gradient(135deg,#ff8bd5,#a1edff);color:#211a37;border:1px solid #fff;box-shadow:0 0 20px #ff8bdc55}
+.deck-controls button.liked{color:#ff8bdc}
+.deck-spacer{flex:1}
+.deck-note{margin:13px 0 0;color:#8f91b2;font:9px 'DM Mono';line-height:1.6}
+@media(max-width:700px){.now-content{grid-template-columns:minmax(0,1fr);gap:18px;margin:24px auto}.now-art-wrap{width:min(72vw,310px)}.now-details{text-align:center;padding:8px 0}.now-tags,.now-actions{justify-content:center}.now-details h1{font-size:26px}.now-details p{font-size:15px}.now-player-card{padding:10px}.now-player-heading{align-items:flex-start;flex-direction:column;gap:5px}.yt-player-host{min-height:200px}.deck-controls{justify-content:center}.deck-spacer{flex:.5}.deck-note{text-align:center}}
