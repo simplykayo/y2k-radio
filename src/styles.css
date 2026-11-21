@@ -192,3 +192,5 @@ body{background:#090b1c}
 .now-screen.minimized .now-backdrop,.now-screen.minimized .lyrics-card,.now-screen.minimized .visualizer{display:none}
 @media(max-width:700px){.lyrics-card{padding:14px}.visualizer{height:38px}}
 @media(prefers-reduced-motion:reduce){.now-backdrop,.visualizer.is-playing i{animation:none!important}}
+
+.lyrics-copyright{display:block;margin-top:10px;color:#8589ad;font:9px 'DM Mono';line-height:1.5}
