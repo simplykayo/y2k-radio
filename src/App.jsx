@@ -71,7 +71,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [youtubeResults, setYoutubeResults] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem("y2k-radio-theme") || "bubblegum");
+  const [theme, setTheme] = useState(() => { const saved = localStorage.getItem("y2k-radio-theme"); return saved === "bubblegum" || !saved ? "porcelain" : saved; });
   const [activeView, setActiveView] = useState("home");
   const [favourites, setFavourites] = useState(() => {
     try { return JSON.parse(localStorage.getItem(FAVOURITES_KEY) || "[]"); }
@@ -307,9 +307,9 @@ function App() {
         <main className="content">
           <section className="hero-card">
             <div className="hero-copy">
-              <div className="eyebrow"><span className="eyebrow-star">✳</span> A LITTLE NOSTALGIA NEVER HURT</div>
-              <h1>Your music.<br /><em>Your</em> universe.</h1>
-              <p>A shiny little place for all the songs that make life feel like a movie.</p>
+              <div className="eyebrow"><span className="eyebrow-star">✳</span> YOUR MUSIC, YOUR WAY</div>
+              <h1>Good music.<br /><em>Anytime.</em></h1>
+              <p>Find a favourite, build a little library, and let the next song find you.</p>
               <div className="hero-buttons">
                 <button className="primary-button" onClick={() => fileInputRef.current?.click()}><Upload size={16} /> Add your music</button>
                 <button className="secondary-button" onClick={() => setShowSettings(true)}><Youtube size={16} /> Connect YouTube</button>
@@ -336,8 +336,8 @@ function App() {
           {activeView === "home" && (
             <section className="browse-section">
               <div className="section-heading browse-heading">
-                <div><div className="eyebrow muted-eyebrow">PICK A MOOD</div><h2>Explore the music library</h2></div>
-                <span className="browse-caption">CURATED STARTING POINTS ♡</span>
+                <div><div className="eyebrow muted-eyebrow">PICK A MOOD</div><h2><Library size={21} strokeWidth={1.9} /> Explore the music library</h2></div>
+                <span className="browse-caption"><Sparkles size={14} /> CURATED STARTING POINTS</span>
               </div>
               <div className="collection-grid">
                 {[
@@ -461,16 +461,16 @@ function App() {
               <div className="settings-title"><Sparkles size={18} /><div><strong>Pick your vibe</strong><small>Choose a colourway for your music world.</small></div></div>
               <div className="theme-grid">
                 {[
-                  { id: "bubblegum", name: "Bubblegum", note: "The original pink" },
-                  { id: "midnight", name: "Midnight", note: "Dark & glossy" },
-                  { id: "lavender", name: "Lavender", note: "Soft purple" },
-                  { id: "ocean", name: "Ocean", note: "Cool blue" },
-                  { id: "mint", name: "Mint", note: "Fresh green" },
-                  { id: "sunset", name: "Sunset", note: "Peachy glow" },
-                  { id: "cherry", name: "Cherry", note: "Red velvet" },
-                  { id: "cyber", name: "Cyber", note: "Neon future" },
-                  { id: "cream", name: "Vanilla", note: "Warm neutral" },
-                  { id: "grape", name: "Grape soda", note: "Deep violet" }
+                  { id: "porcelain", name: "Porcelain", note: "Quiet, clean & light" },
+                  { id: "midnight", name: "Midnight", note: "Deep charcoal & ink" },
+                  { id: "alpine", name: "Alpine", note: "Cool misty neutrals" },
+                  { id: "ocean", name: "Deep ocean", note: "Blue with a little depth" },
+                  { id: "forest", name: "Forest", note: "Muted greens & stone" },
+                  { id: "terracotta", name: "Terracotta", note: "Warm clay & earth" },
+                  { id: "sand", name: "Sandstone", note: "Soft warm neutrals" },
+                  { id: "cobalt", name: "Cobalt", note: "Electric blue accents" },
+                  { id: "plum", name: "Plum", note: "Dusty violet & ink" },
+                  { id: "graphite", name: "Graphite", note: "Minimal dark mode" }
                 ].map((item) => (
                   <button type="button" key={item.id} className={"theme-option theme-" + item.id + (theme === item.id ? " selected" : "")} onClick={() => setTheme(item.id)} aria-pressed={theme === item.id}>
                     <span className="theme-swatch"><i /><i /><i /></span>
