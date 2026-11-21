@@ -36,16 +36,16 @@ The production files are written to `dist/`.
 
 ## YouTube search setup
 
-YouTube search uses the official YouTube Data API v3. It is optional; importing and playing local audio works without an API key.
+Search requests run through a Cloudflare Pages Function. The API key stays in Cloudflare and is not sent to visitors' browsers.
 
 1. Open the [Google Cloud Console](https://console.cloud.google.com/apis/library/youtube.googleapis.com).
-2. Create or select a project.
-3. Enable **YouTube Data API v3**.
-4. Create an API key.
-5. Restrict the key to the website's HTTP referrers and to YouTube Data API v3.
-6. Open Y2K Radio, choose Settings and paste the key into the YouTube search field.
+2. Create or select a project and enable **YouTube Data API v3**.
+3. Create an API key. Restrict it to YouTube Data API v3.
+4. In Cloudflare, open the Pages project and go to **Settings → Variables and Secrets**.
+5. Add a secret named `YOUTUBE_API_KEY` and paste the key as its value.
+6. Save the setting and trigger a new deployment.
 
-The key is stored in the browser's local storage. For a public deployment, use a restricted key and review Google's current API terms and quota limits. Do not commit a private or unrestricted key to this repository.
+Do not add the key to the source code, GitHub repository, or the website's settings screen. The API has quota limits; searches made by all visitors count against the same Google Cloud project quota.
 
 YouTube playback is handled by the official embedded player. YouTube determines advertising, playback availability, regional restrictions and other playback behaviour.
 
@@ -66,7 +66,7 @@ Connect this repository in Cloudflare Pages and deploy. Every push to the connec
 
 Imported audio files are stored in the browser's IndexedDB database on the device where they were added. They are not uploaded to a server. Clearing browser site data can remove the local library, so keep original copies of your music files.
 
-Favourites and the YouTube API key are stored in local storage in the same browser.
+Favourites are stored in local storage in the same browser. The YouTube API key is stored as a Cloudflare secret.
 
 ## Notes
 
