@@ -71,6 +71,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [youtubeResults, setYoutubeResults] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem("y2k-radio-theme") || "bubblegum");
   const [activeView, setActiveView] = useState("home");
   const [favourites, setFavourites] = useState(() => {
     try { return JSON.parse(localStorage.getItem(FAVOURITES_KEY) || "[]"); }
@@ -94,6 +95,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(FAVOURITES_KEY, JSON.stringify(favourites));
   }, [favourites]);
+
+  useEffect(() => {
+    localStorage.setItem("y2k-radio-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -245,7 +250,7 @@ function App() {
   ];
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-theme={theme}>
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <audio
@@ -452,6 +457,29 @@ function App() {
         <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setShowSettings(false); }}>
           <section className="settings-modal">
             <div className="modal-heading"><div><span className="eyebrow muted-eyebrow">MAKE IT YOURS</span><h2>Little settings</h2></div><button className="icon-button" onClick={() => setShowSettings(false)} aria-label="Close settings"><X size={19} /></button></div>
+            <div className="settings-block theme-settings">
+              <div className="settings-title"><Sparkles size={18} /><div><strong>Pick your vibe</strong><small>Choose a colourway for your music world.</small></div></div>
+              <div className="theme-grid">
+                {[
+                  { id: "bubblegum", name: "Bubblegum", note: "The original pink" },
+                  { id: "midnight", name: "Midnight", note: "Dark & glossy" },
+                  { id: "lavender", name: "Lavender", note: "Soft purple" },
+                  { id: "ocean", name: "Ocean", note: "Cool blue" },
+                  { id: "mint", name: "Mint", note: "Fresh green" },
+                  { id: "sunset", name: "Sunset", note: "Peachy glow" },
+                  { id: "cherry", name: "Cherry", note: "Red velvet" },
+                  { id: "cyber", name: "Cyber", note: "Neon future" },
+                  { id: "cream", name: "Vanilla", note: "Warm neutral" },
+                  { id: "grape", name: "Grape soda", note: "Deep violet" }
+                ].map((item) => (
+                  <button type="button" key={item.id} className={"theme-option theme-" + item.id + (theme === item.id ? " selected" : "")} onClick={() => setTheme(item.id)} aria-pressed={theme === item.id}>
+                    <span className="theme-swatch"><i /><i /><i /></span>
+                    <span className="theme-option-copy"><strong>{item.name}</strong><small>{item.note}</small></span>
+                    <span className="theme-check">{theme === item.id ? "✓" : ""}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="settings-block">
               <div className="settings-title"><Youtube size={18} /><div><strong>YouTube search</strong><small>Find music using the official YouTube Data API.</small></div></div>
               <p className="settings-help">YouTube search is connected by the site owner. You do not need to add an API key on this device.</p>
