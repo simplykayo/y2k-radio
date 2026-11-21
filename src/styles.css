@@ -145,3 +145,25 @@ body{background:#090b1c}
 .deck-spacer{flex:1}
 .deck-note{margin:13px 0 0;color:#8f91b2;font:9px 'DM Mono';line-height:1.6}
 @media(max-width:700px){.now-content{grid-template-columns:minmax(0,1fr);gap:18px;margin:24px auto}.now-art-wrap{width:min(72vw,310px)}.now-details{text-align:center;padding:8px 0}.now-tags,.now-actions{justify-content:center}.now-details h1{font-size:26px}.now-details p{font-size:15px}.now-player-card{padding:10px}.now-player-heading{align-items:flex-start;flex-direction:column;gap:5px}.yt-player-host{min-height:200px}.deck-controls{justify-content:center}.deck-spacer{flex:.5}.deck-note{text-align:center}}
+
+
+/* Keep the official YouTube player alive and visible when Now Playing is minimized. */
+.now-screen.minimized{inset:auto 16px 104px auto;width:250px;height:auto;max-height:calc(100vh - 125px);overflow:visible;padding:0;background:none;pointer-events:none;z-index:45}
+.now-screen.minimized .now-top,.now-screen.minimized .now-content{display:none}
+.now-screen.minimized .now-player-card{width:250px;max-width:none;margin:0;padding:10px;border:1px solid #a9eaff99;border-radius:11px;background:linear-gradient(145deg,#211a3b,#10182d);box-shadow:0 12px 45px #000c,0 0 24px #ff8bdc33;pointer-events:auto}
+.now-screen.minimized .now-player-heading{margin:0 1px 8px;gap:6px;flex-wrap:wrap}
+.now-screen.minimized .now-player-heading span{font-size:9px}
+.now-screen.minimized .now-player-heading small{font-size:7px}
+.now-screen.minimized .mini-expand{margin-left:auto;border:1px solid #a9eaff66;border-radius:4px;padding:4px 6px;background:#a9eaff12;color:#a9efff;font:7px 'DM Mono';letter-spacing:.7px}
+.now-screen.minimized .youtube-frame{width:220px;height:200px;min-height:200px;margin:0 auto;padding:3px}
+.now-screen.minimized .yt-player-host{width:100%;height:100%;min-height:200px;aspect-ratio:auto}
+.now-screen.minimized .yt-player-host iframe{width:100%!important;height:200px!important;min-height:200px}
+.now-screen.minimized .custom-deck{padding:7px 2px 1px}
+.now-screen.minimized .deck-top{font-size:7px}
+.now-screen.minimized .deck-seek{margin:9px 0 7px}
+.now-screen.minimized .deck-controls{gap:7px}
+.now-screen.minimized .deck-controls button{width:29px;height:29px}
+.now-screen.minimized .deck-controls button.deck-play{width:35px;height:35px}
+.now-screen.minimized .deck-controls svg{width:15px;height:15px}
+.now-screen.minimized .deck-note{display:none}
+@media(max-width:700px){.now-screen.minimized{right:8px;bottom:122px;width:224px}.now-screen.minimized .now-player-card{width:224px}.now-screen.minimized .youtube-frame{width:200px;height:200px}.now-screen.minimized .yt-player-host{width:100%;height:100%}.now-screen.minimized .yt-player-host iframe{height:200px!important}}
